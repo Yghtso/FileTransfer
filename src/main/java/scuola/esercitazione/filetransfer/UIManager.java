@@ -1,11 +1,13 @@
 package scuola.esercitazione.filetransfer;
 
+import java.io.File;
 import java.io.IOException;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 public class UIManager {
@@ -35,7 +37,19 @@ public class UIManager {
     // UI PUSHER
     @FXML
     private void selectFileButtonClicked() {
+        String fileAbsolutePath = null;
+        String fileName = null;
 
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Open File");
+        fileChooser.setInitialDirectory(new File(System.getProperty("user.home")));
+
+        File selectedFile = fileChooser.showOpenDialog(primaryStage);
+
+        if (selectedFile != null) {
+            fileAbsolutePath = selectedFile.getAbsolutePath();
+            fileName = selectedFile.getName();
+        }
     }
 
     @FXML
