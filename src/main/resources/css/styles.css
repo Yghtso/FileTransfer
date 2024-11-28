@@ -1,6 +1,5 @@
 .title {
-    -fx-font-size: 75px; 
+    -fx-font-size: 70px; 
     -fx-text-fill: #3A86FF; 
-    -fx-font-weight: bold;
-    -fx-font-family: "CustomFont";
+    -fx-font-family: "JetBrains Mono Medium";
 }
