@@ -5,14 +5,21 @@ import java.net.InetAddress;
 
 public abstract class Peer {
     
-    static final int BYTES_TRASFER_PORT = 61100;
-    private DatagramSocket commandsSocket;
-    private DatagramSocket rawFilesSocket;
+    private DatagramSocket sock;
 
-    public abstract void startHandshake();
+    public Peer() throws Exception{
+        this.sock = new DatagramSocket();
+    }
+
+    public Peer(int port) throws Exception{
+        this.sock = new DatagramSocket(port);
+    }
+
+    public abstract void getHandshake();
+
+    public abstract void startSession();
 
     public void connect(InetAddress addr, int port) {
-        commandsSocket.connect(addr, port);
-        rawFilesSocket.connect(addr, BYTES_TRASFER_PORT);
+        sock.connect(addr, port);
     }
 }
