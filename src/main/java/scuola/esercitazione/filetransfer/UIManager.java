@@ -43,6 +43,16 @@ public class UIManager {
         
     }
 
+    @FXML
+    private void startFileTransmissionButtonClicked() {
+
+    }
+
+    // UI PULLER
+    @FXML
+    private void startListeningButtonClicked() {
+        
+    }
 
 
     // Render delle diverse scene
