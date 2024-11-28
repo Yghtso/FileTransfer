@@ -4,12 +4,14 @@ import java.io.FileInputStream;
 
 public class Pusher extends Peer{
     
-    FileInputStream fileToSend;
+    String fileAbsolutePath;
+    String fileName;
 
-    public Pusher(FileInputStream fileToSend) throws Exception {
+    public Pusher() throws Exception {
         super();
-        this.fileToSend = fileToSend;
-    }       
+    }
+
+    
 
     @Override
     public void startSession() {
