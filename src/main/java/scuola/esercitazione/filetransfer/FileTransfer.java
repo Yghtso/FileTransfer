@@ -13,12 +13,13 @@ public class FileTransfer extends Application {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/MainMenu.fxml"));
         Parent root = loader.load();
-
+        
         Scene scene = new Scene(root);
         primaryStage.setScene(scene);
         primaryStage.setTitle("FileTransfer");
         primaryStage.show();
-        
+        primaryStage.setResizable(false);
+
     }
 
     public static void main(String[] args) {
