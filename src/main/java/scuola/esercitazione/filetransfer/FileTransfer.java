@@ -20,6 +20,8 @@ public class FileTransfer extends Application {
         primaryStage.show();
         primaryStage.setResizable(false);
 
+        UIManager.primaryStage = primaryStage;
+
     }
 
     public static void main(String[] args) {
