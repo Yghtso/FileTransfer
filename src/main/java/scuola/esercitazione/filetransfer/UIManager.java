@@ -7,39 +7,47 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 public class UIManager {
 
-    static Stage primaryStage;
-    
+    static public Stage primaryStage;
+    static private Peer user;
 
+    @FXML
+    public Label pusherFilePathLabel;
 
     // UI MENU
     @FXML
     private void selectedPuller() {
-        renderPuller();
+        try {
+            UIManager.user = new Puller();
+            renderPuller();
+        } catch (Exception e) {
+        }
     }
 
     @FXML
     private void selectedPusher() {
-        renderPusher();
+        try {
+            UIManager.user = new Pusher();
+            renderPusher();
+        } catch (Exception e) {
+        }
     }
-    
+
     @FXML
     private void backToMainMenuButtonClicked() {
+        UIManager.user = null;
         renderMainMenu();
     }
-
-
 
     // UI PUSHER
     @FXML
     private void selectFileButtonClicked() {
-        String fileAbsolutePath = null;
-        String fileName = null;
-
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Open File");
         fileChooser.setInitialDirectory(new File(System.getProperty("user.home")));
@@ -47,14 +55,16 @@ public class UIManager {
         File selectedFile = fileChooser.showOpenDialog(primaryStage);
 
         if (selectedFile != null) {
-            fileAbsolutePath = selectedFile.getAbsolutePath();
-            fileName = selectedFile.getName();
+            String fileAbsolutePath = selectedFile.getAbsolutePath();
+            String fileName = selectedFile.getName();
+            ((Pusher) UIManager.user).setFile(fileAbsolutePath, fileName);
+            pusherFilePathLabel.setText(fileAbsolutePath);
         }
     }
 
     @FXML
     private void selectTargetButtonClicked() {
-        
+
     }
 
     @FXML
@@ -65,9 +75,8 @@ public class UIManager {
     // UI PULLER
     @FXML
     private void startListeningButtonClicked() {
-        
-    }
 
+    }
 
     // Render delle diverse scene
     private void renderMainMenu() {
@@ -83,7 +92,7 @@ public class UIManager {
         } catch (IOException e) {
 
             e.printStackTrace();
-        
+
         }
     }
 
@@ -100,7 +109,7 @@ public class UIManager {
         } catch (IOException e) {
 
             e.printStackTrace();
-        
+
         }
     }
 
@@ -118,7 +127,7 @@ public class UIManager {
         } catch (IOException e) {
 
             e.printStackTrace();
-        
+
         }
     }
 

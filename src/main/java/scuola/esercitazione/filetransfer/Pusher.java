@@ -2,8 +2,8 @@ package scuola.esercitazione.filetransfer;
 
 import java.io.FileInputStream;
 
-public class Pusher extends Peer{
-    
+public class Pusher extends Peer {
+
     String fileAbsolutePath;
     String fileName;
 
@@ -11,7 +11,10 @@ public class Pusher extends Peer{
         super();
     }
 
-    
+    public void setFile(String fileAbsolutePath, String fileName) {
+        this.fileAbsolutePath = fileAbsolutePath;
+        this.fileName = fileName;
+    }
 
     @Override
     public void startSession() {
