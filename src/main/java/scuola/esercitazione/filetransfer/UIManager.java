@@ -2,12 +2,12 @@ package scuola.esercitazione.filetransfer;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.InetAddress;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -15,10 +15,12 @@ import javafx.stage.Stage;
 public class UIManager {
 
     static public Stage primaryStage;
-    static private Peer user;
+    static public Peer user;
 
     @FXML
     public Label pusherFilePathLabel;
+    @FXML
+    public Label pullerIPLabel;
 
     // UI MENU
     @FXML
@@ -97,7 +99,7 @@ public class UIManager {
     }
 
     private void renderPuller() {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Pusher.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Puller.fxml"));
         Parent root;
 
         try {
@@ -105,6 +107,10 @@ public class UIManager {
             root = loader.load();
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
+
+            InetAddress localHost = InetAddress.getLocalHost();
+            ((Label) root.lookup("#pullerIPLabel"))
+                    .setText(localHost.getHostAddress() + " : " + Puller.PROTOCOL_DEFAULT_PORT);
 
         } catch (IOException e) {
 
@@ -115,7 +121,7 @@ public class UIManager {
 
     private void renderPusher() {
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Puller.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Pusher.fxml"));
         Parent root;
 
         try {
