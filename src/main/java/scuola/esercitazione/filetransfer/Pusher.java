@@ -24,7 +24,7 @@ public class Pusher extends Peer {
         return super.sock.isConnected();
     }
 
-    public boolean fileSelected() {
+    public boolean isFileSelected() {
         return this.fileAbsolutePath != null;
     }
 
