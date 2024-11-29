@@ -4,14 +4,14 @@ import java.net.DatagramSocket;
 import java.net.InetAddress;
 
 public abstract class Peer {
-    
-    private DatagramSocket sock;
 
-    public Peer() throws Exception{
+    protected DatagramSocket sock;
+
+    public Peer() throws Exception {
         this.sock = new DatagramSocket();
     }
 
-    public Peer(int port) throws Exception{
+    public Peer(int port) throws Exception {
         this.sock = new DatagramSocket(port);
     }
 
