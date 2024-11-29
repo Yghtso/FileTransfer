@@ -13,7 +13,7 @@
       <Button layoutX="716.0" layoutY="55.0" mnemonicParsing="false" onAction="#backToMainMenuButtonClicked" prefHeight="61.0" prefWidth="237.0" text="Back" />
       <Label fx:id="pusherFilePathLabel" layoutX="323.0" layoutY="55.0" prefHeight="61.0" prefWidth="355.0" />
       <Label layoutX="323.0" layoutY="166.0" prefHeight="61.0" prefWidth="355.0" />
-      <Button disable="true" layoutX="383.0" layoutY="357.0" mnemonicParsing="false" onAction="#startFileTransmissionButtonClicked" prefHeight="61.0" prefWidth="237.0" text="Start" />
+      <Button fx:id="startFileTransmissionButton" disable="true" layoutX="383.0" layoutY="357.0" mnemonicParsing="false" onAction="#startFileTransmissionButtonClicked" prefHeight="61.0" prefWidth="237.0" text="Start" />
       <ProgressBar layoutX="49.0" layoutY="506.0" prefHeight="19.0" prefWidth="904.0" progress="0.0" />
       <ProgressIndicator layoutX="488.0" layoutY="451.0" prefHeight="45.0" prefWidth="43.0" progress="0.0" />
    </children>

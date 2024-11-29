@@ -9,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.Button;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
@@ -17,6 +18,8 @@ public class UIManager {
     static public Stage primaryStage;
     static public Peer user;
 
+    @FXML
+    public Button startFileTransmissionButton;
     @FXML
     public Label pusherFilePathLabel;
     @FXML
@@ -61,6 +64,10 @@ public class UIManager {
             String fileName = selectedFile.getName();
             ((Pusher) UIManager.user).setFile(fileAbsolutePath, fileName);
             pusherFilePathLabel.setText(fileAbsolutePath);
+
+            if (((Pusher) UIManager.user).targetAquired()) {
+                startFileTransmissionButton.setDisable(false);
+            }
         }
     }
 
