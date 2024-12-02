@@ -51,6 +51,7 @@ public class UIManager {
 
     @FXML
     private void backToMainMenuButtonClicked() {
+        user.sock.close();
         UIManager.user = null;
         renderMainMenu();
     }
