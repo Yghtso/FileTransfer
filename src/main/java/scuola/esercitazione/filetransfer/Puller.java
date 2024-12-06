@@ -12,7 +12,7 @@ public class Puller extends Peer {
             boolean handShakeObtained = getHandshake();
 
             if (handShakeObtained) {
-
+                System.out.println("Handshake succes");
             } else {
                 System.out.println("Handshake failed");
             }
