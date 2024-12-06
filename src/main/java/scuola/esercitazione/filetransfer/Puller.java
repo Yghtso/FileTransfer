@@ -24,7 +24,7 @@ public class Puller extends Peer {
     }
 
     @Override
-    public void getHandshake() {
-
+    public boolean getHandshake() {
+        return false;
     }
 }

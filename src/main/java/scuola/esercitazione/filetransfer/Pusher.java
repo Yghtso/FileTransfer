@@ -1,11 +1,14 @@
 package scuola.esercitazione.filetransfer;
 
 import java.net.InetAddress;
+import java.io.File;
+import java.net.DatagramPacket;
 
 public class Pusher extends Peer {
 
     private String fileAbsolutePath;
     private String fileName;
+    private File file;
 
     public Pusher() throws Exception {
         super();
@@ -45,7 +48,21 @@ public class Pusher extends Peer {
     }
 
     @Override
-    public void getHandshake() {
+    public boolean getHandshake() {
+        try {
+            super.sock.setSoTimeout(5000);
+            String synPacket = 
+            
+            file.length() + "," + 
+            fileName + "," + 
+            "SYN";
 
+            System.out.println(synPacket);
+            byte[] receiveData = new byte[1024];
+            DatagramPacket ackPacket = new DatagramPacket(receiveData, receiveData.length);
+
+        } catch (Exception e) {
+        }
+        return false;
     }
 }
