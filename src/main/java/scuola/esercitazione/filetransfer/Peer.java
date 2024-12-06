@@ -1,10 +1,15 @@
 package scuola.esercitazione.filetransfer;
 
+import java.io.ByteArrayOutputStream;
 import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 import java.nio.file.Path;
 import java.security.MessageDigest;
+import scuola.esercitazione.Packet;
 
 public abstract class Peer {
 
@@ -46,6 +51,25 @@ public abstract class Peer {
 
         } catch (Exception e) {
             return null;
+        }
+    }
+
+    protected boolean sendPacket(Packet packet) {
+        ByteArrayOutputStream byteStream = new ByteArrayOutputStream();
+    
+        try {
+  
+            ObjectOutputStream objectStream = new ObjectOutputStream(byteStream);
+            objectStream.writeObject(packet);
+            objectStream.flush();
+            byte[] data = byteStream.toByteArray();
+
+            DatagramPacket udpPacket = new DatagramPacket(data, data.length);
+            sock.send(udpPacket);
+            return true;
+  
+        } catch (IOException e) {
+            return false;
         }
     }
 }
