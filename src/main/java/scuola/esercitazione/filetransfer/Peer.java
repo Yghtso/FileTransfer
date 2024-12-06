@@ -71,4 +71,24 @@ public abstract class Peer {
             return false;
         }
     }
+
+    protected Packet receivePacket() {
+        try {
+            byte[] buffer = new byte[8192];
+            DatagramPacket udpPacket = new DatagramPacket(buffer, buffer.length);
+    
+            sock.receive(udpPacket);
+    
+            ByteArrayInputStream byteStream = new ByteArrayInputStream(udpPacket.getData(), 0, udpPacket.getLength());
+            ObjectInputStream objectStream = new ObjectInputStream(byteStream);
+            Packet receivedPacket = (Packet) objectStream.readObject();
+    
+            return receivedPacket;
+    
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+    
 }

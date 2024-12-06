@@ -53,7 +53,7 @@ public class Pusher extends Peer {
     @Override
     public boolean getHandshake() {
         try {
-            super.sock.setSoTimeout(5000);
+            sock.setSoTimeout(5000);
 
             Packet synPacket = new Packet(
                 Peer.hashFile(Paths.get(fileAbsolutePath)),
