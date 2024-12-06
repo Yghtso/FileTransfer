@@ -1,7 +1,6 @@
 package scuola.esercitazione.filetransfer;
 
 import java.net.InetAddress;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.io.File;
 import java.net.DatagramPacket;
