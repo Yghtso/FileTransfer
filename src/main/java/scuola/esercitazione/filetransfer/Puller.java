@@ -2,10 +2,8 @@ package scuola.esercitazione.filetransfer;
 
 public class Puller extends Peer {
 
-    public static final int PROTOCOL_DEFAULT_PORT = 61100;
-
     public Puller() throws Exception {
-        super(Puller.PROTOCOL_DEFAULT_PORT);
+        super(Peer.PROTOCOL_DEFAULT_PORT);
     }
 
     @Override

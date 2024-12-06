@@ -9,6 +9,8 @@ import java.security.MessageDigest;
 public abstract class Peer {
 
     protected DatagramSocket sock;
+    protected InetAddress selfAddress;
+    public static final int PROTOCOL_DEFAULT_PORT = 61100;
 
     public Peer() throws Exception {
         this.sock = new DatagramSocket();
