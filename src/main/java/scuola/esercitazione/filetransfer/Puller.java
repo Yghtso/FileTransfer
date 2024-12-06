@@ -1,5 +1,7 @@
 package scuola.esercitazione.filetransfer;
 
+import scuola.esercitazione.Packet;
+
 public class Puller extends Peer {
 
     public Puller() throws Exception {
@@ -23,8 +25,18 @@ public class Puller extends Peer {
 
     @Override
     public boolean getHandshake() {
-        // TODO : fare sock.connect(addr);
-        // quando si riceve l' indirizzo dell altro peer
+        try {
+            sock.setSoTimeout(5000);
+
+            Packet synPacket;
+            do {
+                synPacket = receivePacket();
+            } while (synPacket == null);
+            
+            return true;
+        } catch (Exception e) {
+            
+        }
         return false;
     }
 }
