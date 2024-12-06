@@ -23,6 +23,8 @@ public class Puller extends Peer {
 
     @Override
     public boolean getHandshake() {
+        // TODO : fare sock.connect(addr);
+        // quando si riceve l' indirizzo dell altro peer
         return false;
     }
 }
