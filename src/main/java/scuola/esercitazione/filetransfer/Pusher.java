@@ -62,6 +62,11 @@ public class Pusher extends Peer {
                 null,
                 this.selfAddress
             );
+            
+            boolean successSubmition;
+            do {
+                successSubmition = sendPacket(synPacket); 
+            } while (!successSubmition);
 
         } catch (Exception e) {
             
