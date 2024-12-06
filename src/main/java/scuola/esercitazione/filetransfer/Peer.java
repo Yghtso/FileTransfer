@@ -7,6 +7,7 @@ import java.io.ObjectOutputStream;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.nio.file.Path;
 import java.security.MessageDigest;
 import scuola.esercitazione.Packet;
@@ -17,12 +18,10 @@ public abstract class Peer {
     protected InetAddress selfAddress;
     public static final int PROTOCOL_DEFAULT_PORT = 61100;
 
-    public Peer() throws Exception {
-        this.sock = new DatagramSocket();
-    }
-
     public Peer(int port) throws Exception {
         this.sock = new DatagramSocket(port);
+        try {   this.selfAddress = InetAddress.getLocalHost();  }
+        catch (UnknownHostException e) {  e.printStackTrace();  }
     }
 
     public abstract boolean getHandshake();

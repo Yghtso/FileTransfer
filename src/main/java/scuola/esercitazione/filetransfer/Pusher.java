@@ -1,6 +1,7 @@
 package scuola.esercitazione.filetransfer;
 
 import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.nio.file.Paths;
 import scuola.esercitazione.Packet;
 import java.io.File;
@@ -36,6 +37,7 @@ public class Pusher extends Peer {
     public void startSession() {
         Thread transmitterThread = new Thread(() -> {
             this.file = new File(this.fileAbsolutePath);
+
             boolean handShakeObtained = getHandshake();
 
             if (handShakeObtained) {
