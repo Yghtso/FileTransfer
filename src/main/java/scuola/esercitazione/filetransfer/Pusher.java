@@ -1,6 +1,8 @@
 package scuola.esercitazione.filetransfer;
 
 import java.net.InetAddress;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.io.File;
 import java.net.DatagramPacket;
 
@@ -53,8 +55,9 @@ public class Pusher extends Peer {
             super.sock.setSoTimeout(5000);
             String synPacket = 
             
-            file.length() + "," + 
-            fileName + "," + 
+            Peer.hashFile(Paths.get(fileAbsolutePath)) + "," +
+            file.length() + "," +
+            fileName + "," +
             "SYN";
 
             System.out.println(synPacket);
