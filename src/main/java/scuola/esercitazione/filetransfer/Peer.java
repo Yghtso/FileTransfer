@@ -27,14 +27,12 @@ public abstract class Peer {
     }
 
     protected static byte[] hashFile(Path filePath) {
-        String hash = new String();
-
         try {
 
             MessageDigest digest = MessageDigest.getInstance("SHA-256");
 
             try (FileInputStream fis = new FileInputStream(filePath.toFile())) {
-                byte[] buffer = new byte[1024];
+                byte[] buffer = new byte[8192];
                 int bytesRead;
     
                 while ((bytesRead = fis.read(buffer)) != -1) {
