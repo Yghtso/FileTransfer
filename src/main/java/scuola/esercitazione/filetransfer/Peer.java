@@ -3,6 +3,7 @@ package scuola.esercitazione.filetransfer;
 import java.io.FileInputStream;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
+import java.nio.file.Path;
 import java.security.MessageDigest;
 
 public abstract class Peer {
@@ -25,22 +26,26 @@ public abstract class Peer {
         sock.connect(addr, port);
     }
 
-    private static MessageDigest hashFile(Path filePath) {
+    private static byte[] hashFile(Path filePath) {
         String hash = new String();
 
-        MessageDigest digest = MessageDigest.getInstance(algorithm);
+        try {
 
-        try (FileInputStream fis = new FileInputStream(filePath.toFile())) {
-            byte[] buffer = new byte[1024]; // Buffer size
-            int bytesRead;
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
 
-            while ((bytesRead = fis.read(buffer)) != -1) {
-                digest.update(buffer, 0, bytesRead);
+            try (FileInputStream fis = new FileInputStream(filePath.toFile())) {
+                byte[] buffer = new byte[1024];
+                int bytesRead;
+    
+                while ((bytesRead = fis.read(buffer)) != -1) {
+                    digest.update(buffer, 0, bytesRead);
+                }
             }
+
+            return digest.digest();
+
+        } catch (Exception e) {
+            return null;
         }
-
-        byte[] checksumBytes = digest.digest();
-
-        return hash;
     }
 }
