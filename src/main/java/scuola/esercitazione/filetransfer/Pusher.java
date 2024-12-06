@@ -53,18 +53,12 @@ public class Pusher extends Peer {
     public boolean getHandshake() {
         try {
             super.sock.setSoTimeout(5000);
-            String synPacket = 
-            
-            Peer.hashFile(Paths.get(fileAbsolutePath)) + "," +
-            file.length() + "," +
-            fileName + "," +
-            "SYN";
 
-            System.out.println(synPacket);
             byte[] receiveData = new byte[1024];
             DatagramPacket ackPacket = new DatagramPacket(receiveData, receiveData.length);
 
         } catch (Exception e) {
+            
         }
         return false;
     }
