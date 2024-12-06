@@ -11,9 +11,16 @@ public class Puller extends Peer {
     @Override
     public void startSession() {
         Thread receiverThread = new Thread(() -> {
-            getHandshake();
-            System.out.println("Handshake avvenuta");
+            boolean handShakeObtained = getHandshake();
+
+            if (handShakeObtained) {
+
+            } else {
+                System.out.println("Handshake failed");
+            }
         });
+
+        receiverThread.start();
     }
 
     @Override

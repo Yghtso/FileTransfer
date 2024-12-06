@@ -31,8 +31,14 @@ public class Pusher extends Peer {
     @Override
     public void startSession() {
         Thread transmitterThread = new Thread(() -> {
-            getHandshake();
-            System.out.println("Handshake avvenuta");
+            this.file = new File(this.fileAbsolutePath);
+            boolean handShakeObtained = getHandshake();
+
+            if (handShakeObtained) {
+
+            } else {
+                System.out.println("Handshake failed");
+            }
         });
 
         transmitterThread.start();
