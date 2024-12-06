@@ -26,7 +26,7 @@ public abstract class Peer {
         sock.connect(addr, port);
     }
 
-    private static byte[] hashFile(Path filePath) {
+    protected static byte[] hashFile(Path filePath) {
         String hash = new String();
 
         try {
