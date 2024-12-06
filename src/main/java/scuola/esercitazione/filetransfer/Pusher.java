@@ -12,7 +12,7 @@ public class Pusher extends Peer {
     private File file;
 
     public Pusher() throws Exception {
-        super();
+        super(Peer.PROTOCOL_DEFAULT_PORT);
     }
 
     public void setFile(String fileAbsolutePath, String fileName) {
