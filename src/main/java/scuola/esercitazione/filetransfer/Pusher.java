@@ -2,8 +2,8 @@ package scuola.esercitazione.filetransfer;
 
 import java.net.InetAddress;
 import java.nio.file.Paths;
+import scuola.esercitazione.Packet;
 import java.io.File;
-import java.net.DatagramPacket;
 
 public class Pusher extends Peer {
 
@@ -53,8 +53,15 @@ public class Pusher extends Peer {
         try {
             super.sock.setSoTimeout(5000);
 
-            byte[] receiveData = new byte[1024];
-            DatagramPacket ackPacket = new DatagramPacket(receiveData, receiveData.length);
+            Packet synPacket = new Packet(
+                Peer.hashFile(Paths.get(fileAbsolutePath)),
+                file.length(),
+                fileName,
+                true,
+                false,
+                null,
+                this.selfAddress
+            );
 
         } catch (Exception e) {
             
