@@ -69,7 +69,7 @@ public class UIManager {
             String fileAbsolutePath = selectedFile.getAbsolutePath();
             String fileName = selectedFile.getName();
             ((Pusher) UIManager.user).setFile(fileAbsolutePath, fileName);
-            pusherFilePathLabel.setText(fileAbsolutePath);
+            pusherFilePathLabel.setText(fileName);
 
             if (((Pusher) UIManager.user).targetAquired() && ((Pusher) UIManager.user).isFileSelected()) {
                 startFileTransmissionButton.setDisable(false);
@@ -93,13 +93,13 @@ public class UIManager {
 
     @FXML
     private void startFileTransmissionButtonClicked() {
-
+        UIManager.user.startSession();
     }
 
     // UI PULLER
     @FXML
     private void startListeningButtonClicked() {
-
+        UIManager.user.startSession();
     }
 
     // Render delle diverse scene
