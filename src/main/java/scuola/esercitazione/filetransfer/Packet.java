@@ -1,4 +1,4 @@
-package scuola.esercitazione;
+package scuola.esercitazione.filetransfer;
 
 import java.net.InetAddress;
 

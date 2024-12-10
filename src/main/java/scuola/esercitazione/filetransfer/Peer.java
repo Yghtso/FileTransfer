@@ -12,7 +12,6 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.nio.file.Path;
 import java.security.MessageDigest;
-import scuola.esercitazione.Packet;
 
 public abstract class Peer {
 

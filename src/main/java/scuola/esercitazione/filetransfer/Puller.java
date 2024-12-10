@@ -1,7 +1,5 @@
 package scuola.esercitazione.filetransfer;
 
-import scuola.esercitazione.Packet;
-
 public class Puller extends Peer {
 
     public Puller() throws Exception {
