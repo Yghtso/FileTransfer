@@ -1,12 +1,17 @@
 package scuola.esercitazione.filetransfer;
 
+import java.lang.ModuleLayer.Controller;
+
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class FileTransfer extends Application {
+
+    public SceneManager sceneManager = new SceneManager();
     
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -21,6 +26,8 @@ public class FileTransfer extends Application {
         primaryStage.setResizable(false);
 
         UIManager.primaryStage = primaryStage;
+
+        sceneManager.loadScenes();
 
     }
 

@@ -5,20 +5,37 @@ import java.io.IOException;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
+import javax.print.attribute.standard.Media;
+
+import javafx.animation.Interpolator;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.PauseTransition;
+import javafx.animation.Timeline;
+import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.SplitPane;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import javafx.util.Duration;
+import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
+
 
 public class UIManager {
 
     static public Stage primaryStage;
     static public Peer user;
+
+    public Timeline TimelinePulsating;
+
+    Label labelTitolo;
 
     @FXML
     public TextField targetIPTextArea;
@@ -28,11 +45,24 @@ public class UIManager {
     public Label pusherFilePathLabel;
     @FXML
     public Label pullerIPLabel;
+    @FXML
+    private Label LabelTitolo;
+    @FXML
+    private SplitPane SpltPaneMenù;
+    @FXML
+    private Button PullerButton;
+    @FXML
+    private Button PusherButton;
+    @FXML
+    private Pane PaneMenù;
+
 
     // UI MENU
     @FXML
     private void selectedPuller() {
         try {
+            if(TimelinePulsating != null)
+                TimelinePulsating.stop();
             UIManager.user = new Puller();
             renderPuller();
         } catch (Exception e) {
@@ -45,6 +75,8 @@ public class UIManager {
         try {
             UIManager.user = new Pusher();
             renderPusher();
+            if(TimelinePulsating != null)
+                TimelinePulsating.stop();
         } catch (Exception e) {
         }
     }
@@ -159,4 +191,87 @@ public class UIManager {
         }
     }
 
+    public void PulsatingText(){
+
+        labelTitolo = (Label) UIManager.primaryStage.getScene().getRoot().lookup("#LabelTitolo");
+
+        TimelinePulsating = new Timeline(
+            new KeyFrame(Duration.ZERO, new KeyValue(labelTitolo.scaleXProperty(), 1), new KeyValue(labelTitolo.scaleYProperty(), 1)),
+            new KeyFrame(Duration.seconds(0.5), new KeyValue(labelTitolo.scaleXProperty(), 1.5), new KeyValue(labelTitolo.scaleYProperty(), 1.5)),
+            new KeyFrame(Duration.seconds(1), new KeyValue(labelTitolo.scaleXProperty(), 1), new KeyValue(labelTitolo.scaleYProperty(), 1))
+        );
+        TimelinePulsating.setCycleCount(Timeline.INDEFINITE);
+        TimelinePulsating.setAutoReverse(true);
+        TimelinePulsating.play();
+
+    }
+
+    public void StartAnimation(){
+
+        LabelTitolo.setLayoutY(-200);
+
+        Timeline timeline = new Timeline(
+            new KeyFrame(Duration.millis(600), 
+                new KeyValue(LabelTitolo.layoutYProperty(), 160, Interpolator.EASE_OUT)),
+            new KeyFrame(Duration.millis(900), 
+                new KeyValue(LabelTitolo.layoutYProperty(), 100, Interpolator.EASE_IN)),
+            new KeyFrame(Duration.millis(1200), 
+                new KeyValue(LabelTitolo.layoutYProperty(), 150, Interpolator.EASE_OUT)),
+            new KeyFrame(Duration.millis(1500), 
+                new KeyValue(LabelTitolo.layoutYProperty(), 120, Interpolator.EASE_IN)),
+            new KeyFrame(Duration.millis(1700), 
+                new KeyValue(LabelTitolo.layoutYProperty(), 150, Interpolator.EASE_OUT)),
+            new KeyFrame(Duration.millis(1850), 
+                new KeyValue(LabelTitolo.layoutYProperty(), 140, Interpolator.EASE_IN)),
+            new KeyFrame(Duration.millis(2000), 
+                new KeyValue(LabelTitolo.layoutYProperty(), 150, Interpolator.EASE_IN))
+        );
+
+        timeline.play();
+        
+        PauseTransition pause = new PauseTransition(Duration.seconds(3)); 
+            pause.setOnFinished(event2 -> {
+                timeline.stop();
+        });
+        
+        pause.play();
+
+    }
+
+    @FXML
+    void ActivateSplitPane(MouseEvent event) {
+
+        PaneMenù.setOnMouseClicked(null);
+
+        labelTitolo = (Label) UIManager.primaryStage.getScene().getRoot().lookup("#LabelTitolo");
+        PullerButton.setLayoutX(-100);
+        PullerButton.setLayoutY(272);
+        PusherButton.setLayoutX(400);
+        PusherButton.setLayoutY(272);
+
+        Timeline Timeline = new Timeline(
+            new KeyFrame(Duration.millis(600), 
+                new KeyValue(labelTitolo.layoutYProperty(), 120, Interpolator.EASE_OUT)),
+            new KeyFrame(Duration.millis(1200), 
+                new KeyValue(labelTitolo.layoutYProperty(), 800, Interpolator.EASE_IN)),
+            new KeyFrame(Duration.millis(1200), event1 -> {
+                    SpltPaneMenù.setVisible(true);
+                }),
+            new KeyFrame(Duration.millis(1600), 
+                new KeyValue(PullerButton.layoutXProperty(), 150, Interpolator.EASE_OUT)),
+            new KeyFrame(Duration.millis(1600), 
+                new KeyValue(PusherButton.layoutXProperty(), 150, Interpolator.EASE_OUT))
+        );
+        
+        Timeline.play();
+
+        PauseTransition pause = new PauseTransition(Duration.seconds(3)); 
+            pause.setOnFinished(event2 -> {
+                Timeline.stop();
+        });
+
+        pause.play();
+        
+
+    }
 }

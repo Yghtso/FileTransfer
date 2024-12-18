@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scuola.esercitazione.filetransfer.UIManager">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" styleClass="PusherPane" stylesheets="@../css/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scuola.esercitazione.filetransfer.UIManager">
    <children>
       <Button layoutX="48.0" layoutY="55.0" mnemonicParsing="false" onAction="#selectFileButtonClicked" prefHeight="61.0" prefWidth="237.0" text="Select File" />
       <Button layoutX="48.0" layoutY="166.0" mnemonicParsing="false" onAction="#selectTargetButtonClicked" prefHeight="61.0" prefWidth="237.0" text="Lock Target" wrapText="true" />

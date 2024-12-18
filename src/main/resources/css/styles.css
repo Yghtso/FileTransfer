@@ -1,4 +1,43 @@
 .title {
-    -fx-font-size: 62px; 
-    -fx-font-family: "Arial";
+    -fx-font-size: 90px; 
+    -fx-font-family: "Palatino Linotype";
+    -fx-text-fill: #b89f33;
+    -fx-effect: dropshadow(gaussian, #ffffff, 2, 2, -2, -2),
+                dropshadow(gaussian, #28ad00, 2, 2, -1, -1),
+                dropshadow(gaussian, #004AAD, 3, 2, 0, 0),
+                dropshadow(gaussian, #004AAD, 3, 2, 1, 1),
+                dropshadow(gaussian, #004AAD, 3, 2, 2, 2),
+                dropshadow(gaussian, #004AAD, 3, 2, 3, 3),
+                dropshadow(gaussian, #004AAD, 3, 2, 4, 4),
+                dropshadow(gaussian, #004AAD, 3, 2, 5, 5),
+                dropshadow(gaussian, #004AAD, 3, 2, 6, 6),
+                dropshadow(gaussian, #004AAD, 3, 2, 7, 7),
+                dropshadow(gaussian, #003366, 4, 2, 8, 8), 
+                dropshadow(gaussian, #003366, 4, 2, 9, 9),
+                dropshadow(gaussian, #003366, 5, 2, 10, 10),
+                dropshadow(gaussian, #003366, 5, 2, 11, 11),
+                dropshadow(gaussian, #003366, 5, 2, 12, 12),
+                dropshadow(gaussian, #003366, 5, 2, 13, 13),
+                dropshadow(gaussian, #003366, 5, 2, 14, 14),
+                dropshadow(gaussian, #660c00, 6, 2, 15, 15),
+                dropshadow(gaussian, #2b6aaa, 6, 2, 16, 16);
+
+    -fx-padding: 10px;
+    -fx-text-alignment: center;
+    -fx-alignment: center;
+}
+
+.Mainpane{
+    -fx-background-image: url('../imgs/SfondoMenù.png');
+    -fx-background-size: cover;
+}
+
+.PullerPane{
+    -fx-background-image: url('../imgs/SfondoPuller.png');
+    -fx-background-size: cover;
+}
+
+.PusherPane{
+    -fx-background-image: url('../imgs/SfondoPusher.png');
+    -fx-background-size: cover;
 }
