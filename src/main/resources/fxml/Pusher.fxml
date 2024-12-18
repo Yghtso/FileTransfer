@@ -5,14 +5,23 @@
 <?import javafx.scene.control.ProgressBar?>
 <?import javafx.scene.control.ProgressIndicator?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" styleClass="PusherPane" stylesheets="@../css/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scuola.esercitazione.filetransfer.UIManager">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" styleClass="PusherPane" stylesheets="@../css/styles.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scuola.esercitazione.filetransfer.UIManager">
    <children>
-      <Button layoutX="48.0" layoutY="55.0" mnemonicParsing="false" onAction="#selectFileButtonClicked" prefHeight="61.0" prefWidth="237.0" text="Select File" />
+      <Button layoutX="716.0" layoutY="168.0" mnemonicParsing="false" onAction="#selectFileButtonClicked" prefHeight="61.0" prefWidth="237.0" text="Select File" />
       <Button layoutX="48.0" layoutY="166.0" mnemonicParsing="false" onAction="#selectTargetButtonClicked" prefHeight="61.0" prefWidth="237.0" text="Lock Target" wrapText="true" />
-      <Button layoutX="716.0" layoutY="55.0" mnemonicParsing="false" onAction="#backToMainMenuButtonClicked" prefHeight="61.0" prefWidth="237.0" text="Back" />
+      <Button layoutX="391.0" layoutY="39.0" mnemonicParsing="false" onAction="#backToMainMenuButtonClicked" prefHeight="61.0" prefWidth="237.0" style="-fx-background-color: trasparent;">
+         <graphic>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imgs/GoBackPusher.gif" />
+               </image>
+            </ImageView>
+         </graphic></Button>
       <Label fx:id="pusherFilePathLabel" layoutX="323.0" layoutY="55.0" prefHeight="61.0" prefWidth="355.0" />
       <Button fx:id="startFileTransmissionButton" disable="true" layoutX="383.0" layoutY="357.0" mnemonicParsing="false" onAction="#startFileTransmissionButtonClicked" prefHeight="61.0" prefWidth="237.0" text="Start" />
       <ProgressBar layoutX="49.0" layoutY="506.0" prefHeight="19.0" prefWidth="904.0" progress="0.0" />

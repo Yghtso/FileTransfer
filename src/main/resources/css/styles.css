@@ -41,3 +41,24 @@
     -fx-background-image: url('../imgs/SfondoPusher.png');
     -fx-background-size: cover;
 }
+
+
+.buttonMain {
+    -fx-text-fill: #ffd900;
+    -fx-font-family: "Palatino Linotype";
+    -fx-font-size: 16px;
+    -fx-font-family: inherit;
+    -fx-font-weight: bold;
+    -fx-background-color: #f8f8fd;
+    -fx-padding: 12.8px 35.2px; 
+    -fx-background-radius: 50px; 
+    -fx-border-color: #b77a1d;
+    -fx-border-width: 6px;
+    -fx-border-radius: 50px; 
+  }
+  
+  .buttonMain:pressed {
+    -fx-border-color: #e2c339;
+    -fx-background-color: #f8f8fd;
+  }
+  
