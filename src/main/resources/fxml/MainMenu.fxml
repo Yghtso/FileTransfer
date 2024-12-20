@@ -2,31 +2,17 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.SplitPane?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="PaneMenù" focusTraversable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#StartAnimation" prefHeight="600.0" prefWidth="1000.0" styleClass="Mainpane" stylesheets="@../css/styles.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scuola.esercitazione.filetransfer.UIManager">
+<Pane fx:id="PaneMenù" focusTraversable="true" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#StartAnimation" prefHeight="600.0" prefWidth="1000.0" styleClass="Mainpane" stylesheets="@../css/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scuola.esercitazione.filetransfer.UIManager">
    <children>
-      <SplitPane fx:id="SpltPaneMenù" dividerPositions="0.5" layoutX="1.0" layoutY="-8.0" prefHeight="609.0" prefWidth="1000.0" style="-fx-background-color: trasparent;" visible="false">
-        <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="562.0" prefWidth="503.0">
-               <children>
-                  <Button fx:id="PullerButton" alignment="CENTER" contentDisplay="CENTER" layoutX="143.0" layoutY="276.0" mnemonicParsing="false" onAction="#selectedPuller" prefHeight="56.0" prefWidth="211.0" styleClass="buttonMain" text="PULLER" />
-               </children>
-            </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="609.0" prefWidth="511.0">
-               <children>
-                  <Button fx:id="PusherButton" alignment="CENTER" contentDisplay="CENTER" layoutX="143.0" layoutY="276.0" mnemonicParsing="false" onAction="#selectedPusher" prefHeight="56.0" prefWidth="211.0" styleClass="buttonMain" text="PUSHER" />
-               </children>
-            </AnchorPane>
-        </items>
-      </SplitPane>
-      <Label fx:id="LabelTitolo" alignment="CENTER" layoutX="45.0" layoutY="-192.0" onMouseClicked="#ActivateSplitPane" prefHeight="281.0" prefWidth="1000.0" styleClass="title" stylesheets="@../css/styles.css" text="FILE TRANSFER" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS" wrapText="true">
+      <Label fx:id="LabelTitolo" alignment="CENTER" layoutY="-198.0" onMouseClicked="#ActivateSplitPane" prefHeight="281.0" prefWidth="1000.0" styleClass="title" stylesheets="@../css/styles.css" text="FILE TRANSFER" textAlignment="CENTER" textOverrun="CENTER_WORD_ELLIPSIS" wrapText="true">
          <font>
             <Font name="Palatino Linotype Bold" size="18.0" />
          </font>
       </Label>
+      <Button fx:id="PullerButton" alignment="CENTER" contentDisplay="CENTER" layoutX="14.0" layoutY="350.0" mnemonicParsing="false" onAction="#selectedPuller" prefHeight="100.0" prefWidth="300.0" styleClass="buttonMain" text="PULLER" visible="false" />
+      <Button fx:id="PusherButton" alignment="CENTER" contentDisplay="CENTER" layoutX="686.0" layoutY="350.0" mnemonicParsing="false" onAction="#selectedPusher" prefHeight="100.0" prefWidth="300.0" styleClass="buttonMain" text="PUSHER" visible="false" />
    </children>
 </Pane>

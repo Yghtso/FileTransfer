@@ -246,21 +246,24 @@ public class UIManager {
         labelTitolo = (Label) UIManager.primaryStage.getScene().getRoot().lookup("#LabelTitolo");
         PullerButton.setLayoutX(-100);
         PullerButton.setLayoutY(272);
-        PusherButton.setLayoutX(400);
+        PusherButton.setLayoutX(1100);
         PusherButton.setLayoutY(272);
 
         Timeline Timeline = new Timeline(
             new KeyFrame(Duration.millis(600), 
-                new KeyValue(labelTitolo.layoutYProperty(), 120, Interpolator.EASE_OUT)),
+                new KeyValue(labelTitolo.layoutYProperty(), 5, Interpolator.EASE_OUT)),
             new KeyFrame(Duration.millis(1200), 
-                new KeyValue(labelTitolo.layoutYProperty(), 800, Interpolator.EASE_IN)),
+                new KeyValue(labelTitolo.layoutYProperty(), 20, Interpolator.EASE_OUT)),
             new KeyFrame(Duration.millis(1200), event1 -> {
-                    SpltPaneMenù.setVisible(true);
+                    PullerButton.setVisible(true);
+                }),
+                new KeyFrame(Duration.millis(1200), event1 -> {
+                    PusherButton.setVisible(true);
                 }),
             new KeyFrame(Duration.millis(1600), 
-                new KeyValue(PullerButton.layoutXProperty(), 150, Interpolator.EASE_OUT)),
+                new KeyValue(PullerButton.layoutXProperty(), 100, Interpolator.EASE_OUT)),
             new KeyFrame(Duration.millis(1600), 
-                new KeyValue(PusherButton.layoutXProperty(), 150, Interpolator.EASE_OUT))
+                new KeyValue(PusherButton.layoutXProperty(), 600, Interpolator.EASE_OUT))
         );
         
         Timeline.play();

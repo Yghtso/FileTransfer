@@ -9,23 +9,24 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" styleClass="PullerPane" stylesheets="@../css/styles.css" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scuola.esercitazione.filetransfer.UIManager">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="1000.0" styleClass="PullerPane" stylesheets="@../css/styles.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="scuola.esercitazione.filetransfer.UIManager">
    <children>
-      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="383.0" layoutY="42.0" mnemonicParsing="false" onAction="#backToMainMenuButtonClicked" prefHeight="61.0" prefWidth="237.0" style="-fx-background-color: trasparent;">
-         <graphic>
-            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../imgs/goBackPuller.gif" />
-               </image>
-            </ImageView>
-         </graphic></Button>
-      <Label fx:id="pullerIPLabel" alignment="CENTER" layoutX="213.0" layoutY="240.0" prefHeight="120.0" prefWidth="550.0">
+      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="49.0" layoutY="39.0" mnemonicParsing="false" onAction="#backToMainMenuButtonClicked" prefHeight="100.0" prefWidth="100.0" styleClass="buttonPuller" />
+      <Label fx:id="pullerIPLabel" alignment="CENTER" layoutX="213.0" layoutY="240.0" prefHeight="120.0" prefWidth="550.0" textFill="WHITE">
          <font>
-            <Font size="63.0" />
+            <Font size="48.0" />
          </font></Label>
-      <Button layoutX="383.0" layoutY="357.0" mnemonicParsing="false" onAction="#startListeningButtonClicked" prefHeight="61.0" prefWidth="237.0" text="Start" />
-      <ProgressBar layoutX="49.0" layoutY="506.0" prefHeight="19.0" prefWidth="904.0" progress="0.0" />
-      <ProgressIndicator layoutX="488.0" layoutY="451.0" prefHeight="45.0" prefWidth="43.0" progress="0.0" />
-      <Label alignment="CENTER" layoutX="417.0" layoutY="190.0" prefHeight="31.0" prefWidth="186.0" text="IP CORRENTE" textFill="WHITE" />
+      <Button layoutX="383.0" layoutY="357.0" mnemonicParsing="false" onAction="#startListeningButtonClicked" prefHeight="61.0" prefWidth="237.0" styleClass="buttonPuller" text="Start" />
+      <ProgressBar layoutX="49.0" layoutY="506.0" prefHeight="19.0" prefWidth="904.0" progress="0.0" styleClass="progressBarPuller" />
+      <ProgressIndicator layoutX="488.0" layoutY="451.0" prefHeight="45.0" prefWidth="43.0" progress="0.0" styleClass="progressIndicatorPuller" />
+      <Label alignment="CENTER" layoutX="373.0" layoutY="173.0" prefHeight="81.0" prefWidth="274.0" text="IP CORRENTE" textFill="WHITE">
+         <font>
+            <Font size="36.0" />
+         </font></Label>
+      <ImageView disable="true" fitHeight="63.0" fitWidth="67.0" layoutX="68.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../imgs/GoBack.png" />
+         </image>
+      </ImageView>
    </children>
 </Pane>
